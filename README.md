@@ -1,2 +1,11 @@
-# react-dsfr-next-demo
-Demo of no white flash when reloading in SSR
+
+This is a test Web App to test the integration of `@codegouvfr/react-dsfr` with Next.js  
+You can run it locally with:  
+
+```bash
+git clone https://github.com/codegouvfr/react-dsfr
+cd react-dsfr
+yarn
+yarn build
+yarn start_next
+```
