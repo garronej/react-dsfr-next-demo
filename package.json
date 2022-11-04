@@ -6,10 +6,12 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint"
+        "lint": "next lint",
+        "predev": "only_include_used_icons",
+        "prebuild": "only_include_used_icons"
     },
     "dependencies": {
-        "@codegouvfr/react-dsfr": "^0.0.17",
+        "@codegouvfr/react-dsfr": "^0.0.27",
         "next": "^13.0.1",
         "react": "18.2.0",
         "react-dom": "^18.2.0"
