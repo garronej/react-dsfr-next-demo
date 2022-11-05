@@ -1,9 +1,16 @@
 import DefaultApp from "next/app";
 import { withAppDsfr } from "@codegouvfr/react-dsfr/next";
+import { createEmotionSsrAdvancedApproach } from "tss-react/next";
 import "@codegouvfr/react-dsfr/dsfr/dsfr.css";
 import "@codegouvfr/react-dsfr/dsfr/utility/icons/icons.css";
 
-export default withAppDsfr(DefaultApp, {
+const { augmentDocumentWithEmotionCache, withAppEmotionCache} = createEmotionSsrAdvancedApproach({
+	"key": "css"
+});
+
+export { augmentDocumentWithEmotionCache };
+
+export default withAppEmotionCache(withAppDsfr(DefaultApp, {
 	"defaultColorScheme": "system",
 	"preloadFonts": [
 		//"Marianne-Light",
@@ -17,4 +24,4 @@ export default withAppDsfr(DefaultApp, {
 		//"Spectral-Regular",
 		//"Spectral-ExtraBold"
 	]
-});
+}));

@@ -2,15 +2,44 @@
 import ArtworkLightSvg from "@codegouvfr/react-dsfr/dsfr/artwork/light.svg";
 import ArtworkDarkSvg from "@codegouvfr/react-dsfr/dsfr/artwork/dark.svg";
 import ArtworkSystemSvg from "@codegouvfr/react-dsfr/dsfr/artwork/system.svg";
-import { useIsDark } from "@codegouvfr/react-dsfr";
+import { useIsDark, fr } from "@codegouvfr/react-dsfr";
+import { makeStyles } from "tss-react/dsfr";
+
+const useStyles = makeStyles()(
+    colors => ({
+        "colorSchemeTitle": {
+            ...fr.spacing("margin", { "topBottom": "4v" }),
+            [fr.breakpoints.up("md")]: {
+                "backgroundColor": colors.decisions.background.alt.blueFrance.active
+            }
+        }
+    })
+);
 
 export default function Index() {
+
+    const { classes } = useStyles();
 
     const { isDark, setIsDark } = useIsDark();
 
     return (
         <>
-            <h1>Color Scheme: {isDark}</h1>
+
+            <button className="fr-btn fr-icon-checkbox-circle-line fr-btn--icon-left">
+                Label bouton MD
+            </button>
+            <span className="fr-icon-ancient-gate-fill" aria-hidden="true" />
+            <i className="fr-icon-ancient-gate-fill" />
+
+            <button className="fr-btn ri-mail-download-line fr-btn--icon-left">
+                Label bouton MD
+            </button>
+            <span className="ri-mail-download-line" aria-hidden="true" />
+            <i className="ri-mail-download-line" />
+
+            <h1 className={classes.colorSchemeTitle}>
+                Color Scheme: {isDark ? "dark" : "light"}
+            </h1>
             <button onClick={() => setIsDark(true)}>Set color scheme to dark</button>
             <button onClick={() => setIsDark(false)}>Set color scheme to light</button>
             <button onClick={() => setIsDark("system")}>Set color scheme to system</button>
