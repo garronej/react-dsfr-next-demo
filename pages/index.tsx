@@ -4,6 +4,7 @@ import ArtworkDarkSvg from "@codegouvfr/react-dsfr/dsfr/artwork/dark.svg";
 import ArtworkSystemSvg from "@codegouvfr/react-dsfr/dsfr/artwork/system.svg";
 import { useIsDark, fr } from "@codegouvfr/react-dsfr";
 import { makeStyles } from "tss-react/dsfr";
+import { MyComponent } from "../components/MyComponent";
 
 const useStyles = makeStyles()(
     colors => ({
@@ -18,12 +19,14 @@ const useStyles = makeStyles()(
 
 export default function Index() {
 
-    const { classes } = useStyles();
+    const { classes, css } = useStyles();
 
     const { isDark, setIsDark } = useIsDark();
 
     return (
         <>
+
+            <MyComponent className={css({ "border": "1px solid black" })}/>
 
             <button className="fr-btn fr-icon-checkbox-circle-line fr-btn--icon-left">
                 Label bouton MD
