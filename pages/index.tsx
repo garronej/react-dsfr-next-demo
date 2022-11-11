@@ -25,7 +25,7 @@ export default function Index() {
             <i className="fr-icon-ancient-gate-fill" />
 
             <button className="fr-btn ri-mail-download-line fr-btn--icon-left">
-                Label bouton MD
+                Label bouton MD 2
             </button>
             <span className="ri-mail-download-line" aria-hidden="true" />
             <i className="ri-mail-download-line" />
