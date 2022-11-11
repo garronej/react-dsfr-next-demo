@@ -6,16 +6,6 @@ import { useIsDark, fr } from "@codegouvfr/react-dsfr";
 import { makeStyles } from "tss-react/dsfr";
 import { MyComponent } from "../components/MyComponent";
 
-const useStyles = makeStyles()(
-    colors => ({
-        "colorSchemeTitle": {
-            ...fr.spacing("margin", { "topBottom": "4v" }),
-            [fr.breakpoints.up("md")]: {
-                "backgroundColor": colors.decisions.background.alt.blueFrance.active
-            }
-        }
-    })
-);
 
 export default function Index() {
 
@@ -26,7 +16,7 @@ export default function Index() {
     return (
         <>
 
-            <MyComponent className={css({ "border": "1px solid black" })}/>
+            <MyComponent className={css({ "border": "1px solid black" })} />
 
             <button className="fr-btn fr-icon-checkbox-circle-line fr-btn--icon-left">
                 Label bouton MD
@@ -43,9 +33,9 @@ export default function Index() {
             <h1 className={classes.colorSchemeTitle}>
                 Color Scheme: {isDark ? "dark" : "light"}
             </h1>
-            <button onClick={() => setIsDark(true)}>Set color scheme to dark</button>
-            <button onClick={() => setIsDark(false)}>Set color scheme to light</button>
-            <button onClick={() => setIsDark("system")}>Set color scheme to system</button>
+            <button onClick={() => setIsDark(true)}>Set color scheme to dark 🌑</button>
+            <button onClick={() => setIsDark(false)}>Set color scheme to light🌕</button>
+            <button onClick={() => setIsDark("system")}>Set color scheme to system🌗</button>
             <header role="banner" className="fr-header">
                 <div className="fr-header__body">
                     <div className="fr-container">
@@ -180,3 +170,14 @@ export default function Index() {
         </>
     );
 }
+
+const useStyles = makeStyles({ "name": { Index } })(
+    colors => ({
+        "colorSchemeTitle": {
+            ...fr.spacing("margin", { "topBottom": "4v" }),
+            [fr.breakpoints.up("md")]: {
+                "backgroundColor": colors.decisions.background.alt.blueFrance.active
+            }
+        }
+    })
+);
