@@ -78,10 +78,10 @@
     "@babel/helper-validator-identifier" "^7.19.1"
     to-fast-properties "^2.0.0"
 
-"@codegouvfr/react-dsfr@^0.0.29":
-  version "0.0.29"
-  resolved "https://registry.yarnpkg.com/@codegouvfr/react-dsfr/-/react-dsfr-0.0.29.tgz#e2336042a5e73357d6a3675ca08151eff48d1117"
-  integrity sha512-NSL/f/WS5YLnc4+FuJXxOa4SkooSDZ53wblg/ZTdm6UEbSvcbSHpkmeKJV31h2cm3CnLuqw62bYfVSbxC5+3Dw==
+"@codegouvfr/react-dsfr@0.0.30-rc.0":
+  version "0.0.30-rc.0"
+  resolved "https://registry.yarnpkg.com/@codegouvfr/react-dsfr/-/react-dsfr-0.0.30-rc.0.tgz#8e3ab7d7a00b91b007e5019d999c9699a247695f"
+  integrity sha512-cuOzeaOnQ7eqndUbC4ugQSWgMoDEF16lKAYmnQA+ci6PZk9JYxdQ1+soazTGWCTEhixuLgg9K1Yp2KaG36RDgQ==
   dependencies:
     "@gouvfr/dsfr" "1.8.1"
     remixicon "^2.5.0"
