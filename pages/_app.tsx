@@ -4,7 +4,7 @@ import { createEmotionSsrAdvancedApproach } from "tss-react/next";
 import "@codegouvfr/react-dsfr/dsfr/dsfr.css";
 import "@codegouvfr/react-dsfr/dsfr/utility/icons/icons.css";
 
-const { withAppDsfr, dsfrDocumentApi } = createNextDsfrIntegrationApi({
+const { withDsfr, dsfrDocumentApi } = createNextDsfrIntegrationApi({
 		"defaultColorScheme": "system",
 		"preloadFonts": [
 			//"Marianne-Light",
@@ -30,4 +30,4 @@ const {
 
 export { augmentDocumentWithEmotionCache };
 
-export default withAppDsfr(withAppEmotionCache(DefaultApp));
+export default withDsfr(withAppEmotionCache(DefaultApp));

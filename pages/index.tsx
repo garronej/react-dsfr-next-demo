@@ -88,7 +88,7 @@ export default function Index() {
                 <div className="fr-header__tools-links">
                     <ul className="fr-links-group">
                         <li>
-                            <button className="fr-link fr-fi-theme-fill fr-link--icon-left" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d{"'"}affichage</button>
+                            <button className="fr-link fr-icon-theme-fill fr-link--icon-left" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d{"'"}affichage</button>
                         </li>
                     </ul>
                 </div>
