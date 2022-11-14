@@ -1,15 +1,15 @@
-import { Html, Head, Main, NextScript } from 'next/document'
-import { getColorSchemeSsrUtils } from "@codegouvfr/react-dsfr/next";
+import { Html, Head, Main, NextScript, DocumentProps } from 'next/document'
+import { dsfrDocumentApi } from "./_app";
 import { augmentDocumentWithEmotionCache } from "./_app";
 
 const {
 	augmentDocumentByReadingColorSchemeFromCookie,
 	getColorSchemeHtmlAttributes
-} = getColorSchemeSsrUtils();
+} = dsfrDocumentApi;
 
-export default function Document() {
+export default function Document(props: DocumentProps) {
 	return (
-		<Html {...getColorSchemeHtmlAttributes()}>
+		<Html {...getColorSchemeHtmlAttributes(props)}>
 			<Head />
 			<body>
 				<Main />
