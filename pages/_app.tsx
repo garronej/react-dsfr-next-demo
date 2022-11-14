@@ -30,4 +30,4 @@ const {
 
 export { augmentDocumentWithEmotionCache };
 
-export default withAppDsfr(withAppEmotionCache(DefaultApp),);
+export default withAppDsfr(withAppEmotionCache(DefaultApp));
