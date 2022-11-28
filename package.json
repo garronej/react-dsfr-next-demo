@@ -7,17 +7,16 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "predev": "only_include_used_icons",
-        "prebuild": "only_include_used_icons"
+        "predev": "only-include-used-icons",
+        "prebuild": "only-include-used-icons"
     },
     "dependencies": {
-        "@codegouvfr/react-dsfr": "^0.0.41",
+        "@codegouvfr/react-dsfr": "^0.0.58",
         "@emotion/react": "^11.10.5",
         "@emotion/server": "^11.10.0",
         "next": "^13.0.1",
         "react": "18.2.0",
-        "react-dom": "^18.2.0",
-        "tss-react": "^4.4.4"
+        "react-dom": "^18.2.0"
     },
     "devDependencies": {
         "@types/node": "18.7.23",
