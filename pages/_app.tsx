@@ -5,6 +5,12 @@ import { Header } from "@codegouvfr/react-dsfr/Header";
 import { fr } from "@codegouvfr/react-dsfr";
 import { createMuiDsfrThemeProvider, noAugmentation } from "@codegouvfr/react-dsfr/mui";
 
+import type { LinkProps as NextLinkProps } from "next/link";
+
+declare module "@codegouvfr/react-dsfr" {
+    export interface LinkProps extends NextLinkProps { }
+}
+
 const { withDsfr, dsfrDocumentApi } = createNextDsfrIntegrationApi({
 	"defaultColorScheme": "light",
 	"preloadFonts": [
@@ -44,19 +50,18 @@ function App({ Component, pageProps }: AppProps) {
 				nomDuSiteSlashService="Nom du site / service"
 				links={[
 					{
-						"text": "Créer un espace",
-						"iconId": "fr-icon-add-circle-line",
-						"href": "#"
+						"text": "home",
+						"iconId": "fr-icon-home-4-fill",
+						"linkProps": {
+							"href": "/"
+						}
 					},
 					{
-						"text": "Se connecter",
-						"iconId": "fr-icon-lock-line",
-						"href": "#"
-					},
-					{
-						"text": "S'enregistrer",
-						"iconId": "fr-icon-account-line",
-						"href": "#"
+						"text": "Playground",
+						"iconId": "fr-icon-play-circle-fill",
+						"linkProps": {
+							"href": "/playground"
+						}
 					}
 				]}
 			/>
