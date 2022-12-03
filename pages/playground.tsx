@@ -1,5 +1,14 @@
 
+import { Alert } from "@codegouvfr/react-dsfr/Alert";
 
-export default function Playground(){
-	return <h1>Hello playground</h1>
+export default function Playground() {
+
+	return (
+		<Alert
+			severity="success"
+			isClosable
+			description="Everything went well"
+			title="Message successfully sent"
+		/>
+	)
 }
