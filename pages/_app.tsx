@@ -3,7 +3,7 @@ import { createNextDsfrIntegrationApi } from "@codegouvfr/react-dsfr/next";
 import { createEmotionSsrAdvancedApproach } from "tss-react/next";
 import { Header } from "@codegouvfr/react-dsfr/Header";
 import { fr } from "@codegouvfr/react-dsfr";
-import { createMuiDsfrThemeProvider, noAugmentation } from "@codegouvfr/react-dsfr/mui";
+import { createMuiDsfrThemeProvider } from "@codegouvfr/react-dsfr/mui";
 
 import type { LinkProps as NextLinkProps } from "next/link";
 
@@ -24,8 +24,7 @@ const { withDsfr, dsfrDocumentApi } = createNextDsfrIntegrationApi({
 		//"Marianne-Bold_Italic",
 		//"Spectral-Regular",
 		//"Spectral-ExtraBold"
-	],
-	"doPersistDarkModePreferenceWithCookie": true
+	]
 });
 
 export { dsfrDocumentApi };
@@ -36,9 +35,7 @@ const { withAppEmotionCache, augmentDocumentWithEmotionCache } = createEmotionSs
 
 export { augmentDocumentWithEmotionCache };
 
-const { MuiDsfrThemeProvider } = createMuiDsfrThemeProvider({
-	"augmentMuiTheme": noAugmentation
-});
+const { MuiDsfrThemeProvider } = createMuiDsfrThemeProvider();
 
 function App({ Component, pageProps }: AppProps) {
 
