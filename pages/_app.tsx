@@ -8,6 +8,7 @@ import { createEmotionSsrAdvancedApproach } from "tss-react/next";
 import { fr } from "@codegouvfr/react-dsfr";
 import { createMuiDsfrThemeProvider } from "@codegouvfr/react-dsfr/mui";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const { DsfrLinkProvider } = createDsfrLinkProvider({ Link });
 
@@ -53,6 +54,8 @@ const homeLinkProps = {
 
 function App({ Component, pageProps }: AppProps) {
 
+	const router = useRouter();
+
 	return (
 		<DsfrLinkProvider>
 
@@ -84,12 +87,29 @@ function App({ Component, pageProps }: AppProps) {
 						},
 						headerFooterDisplayItem
 					]}
+					navItems={[
+						{
+							text: "home",
+							linkProps: {
+								href: "/"
+							},
+							isActive: router.asPath === "/"
+						},
+						{
+							text: "mui",
+							linkProps: {
+								href: "/mui"
+							},
+							isActive: router.asPath === "/mui"
+						}
+					]}
 					serviceTagline="baseline - précisions sur l'organisation"
 					serviceTitle="Nom du site / service"
 				/>
 				<div style={{
 					"margin": "auto",
 					"maxWidth": 1000,
+					"minHeight": "calc(100vh - 208px - 231px - 5px)",
 					...fr.spacing("padding", {
 						"topBottom": "10v"
 					})
@@ -102,6 +122,10 @@ function App({ Component, pageProps }: AppProps) {
 					homeLinkProps={homeLinkProps}
 					accessibility="non compliant"
 					bottomItems={[headerFooterDisplayItem]}
+					contentDescription={`
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+					labore et dolore magna aliqua. 
+					`}
 				/>
 				<Display />
 			</MuiDsfrThemeProvider>
