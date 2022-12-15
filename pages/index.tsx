@@ -1,7 +1,6 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import { DarkModeSwitch } from "@codegouvfr/react-dsfr/DarkModeSwitch";
 
 
 export default function Home() {
@@ -11,7 +10,6 @@ export default function Home() {
 function ComboBox() {
     return (
         <>
-            <DarkModeSwitch />
             <Autocomplete
                 disablePortal
                 id="combo-box-demo"

@@ -1,8 +1,11 @@
 const withTM = require('next-transpile-modules')(['@codegouvfr/react-dsfr']);
 
-module.exports = withTM({
+/** @type {import('next').NextConfig} */
+const nextConfig = withTM({
   reactStrictMode: true,
+  swcMinify: true,
   webpack: config => {
+
     config.module.rules.push({
       test: /\.(woff2|webmanifest)$/,
       type: "asset/resource"
@@ -11,3 +14,5 @@ module.exports = withTM({
     return config;
   }
 });
+
+module.exports = nextConfig

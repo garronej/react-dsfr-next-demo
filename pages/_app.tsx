@@ -1,14 +1,20 @@
 import type { AppProps } from "next/app";
+import { createDsfrLinkProvider } from "@codegouvfr/react-dsfr";
 import { createNextDsfrIntegrationApi } from "@codegouvfr/react-dsfr/next";
-import { createEmotionSsrAdvancedApproach } from "tss-react/next";
 import { Header } from "@codegouvfr/react-dsfr/Header";
+import { Footer } from "@codegouvfr/react-dsfr/Footer";
+import { Display, headerFooterDisplayItem } from "@codegouvfr/react-dsfr/Display";
+import { createEmotionSsrAdvancedApproach } from "tss-react/next";
 import { fr } from "@codegouvfr/react-dsfr";
 import { createMuiDsfrThemeProvider } from "@codegouvfr/react-dsfr/mui";
+import Link from "next/link";
 
-import type { LinkProps as NextLinkProps } from "next/link";
+const { DsfrLinkProvider } = createDsfrLinkProvider({ Link });
 
 declare module "@codegouvfr/react-dsfr" {
-    export interface LinkProps extends NextLinkProps { }
+	interface RegisterLink {
+		Link: typeof Link;
+	}
 }
 
 const { withDsfr, dsfrDocumentApi } = createNextDsfrIntegrationApi({
@@ -37,42 +43,69 @@ export { augmentDocumentWithEmotionCache };
 
 const { MuiDsfrThemeProvider } = createMuiDsfrThemeProvider();
 
+const brandTop = <>INTITULE<br />OFFICIEL</>;
+
+const homeLinkProps = {
+	"href": '/',
+	"title": 'Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)'
+};
+
+
 function App({ Component, pageProps }: AppProps) {
 
 	return (
-		<MuiDsfrThemeProvider>
-			<Header
-				intituléOfficiel="Intitulé officiel"
-				baselinePrécisionsSurLorganisation="baseline - Précision sur l'organisation"
-				nomDuSiteSlashService="Nom du site / service"
-				links={[
-					{
-						"text": "home",
-						"iconId": "fr-icon-home-4-fill",
-						"linkProps": {
-							"href": "/"
-						}
-					},
-					{
-						"text": "Playground",
-						"iconId": "fr-icon-play-circle-fill",
-						"linkProps": {
-							"href": "/playground"
-						}
-					}
-				]}
-			/>
-			<div style={{
-				"margin": "auto",
-				"maxWidth": 1000,
-				...fr.spacing("padding", {
-					"topBottom": "10v"
-				})
-			}}>
-				<Component {...pageProps} />
-			</div>
-		</MuiDsfrThemeProvider>
+		<DsfrLinkProvider>
 
+			<MuiDsfrThemeProvider>
+				<Header
+					brandTop={brandTop}
+					homeLinkProps={homeLinkProps}
+					quickAccessItems={[
+						{
+							iconId: 'fr-icon-add-circle-line',
+							linkProps: {
+								href: '#',
+							},
+							text: 'Créer un espace'
+						},
+						{
+							iconId: 'fr-icon-lock-line',
+							linkProps: {
+								href: '#'
+							},
+							text: 'Se connecter'
+						},
+						{
+							iconId: 'fr-icon-account-line',
+							linkProps: {
+								href: '#'
+							},
+							text: 'S’enregistrer'
+						},
+						headerFooterDisplayItem
+					]}
+					serviceTagline="baseline - précisions sur l'organisation"
+					serviceTitle="Nom du site / service"
+				/>
+				<div style={{
+					"margin": "auto",
+					"maxWidth": 1000,
+					...fr.spacing("padding", {
+						"topBottom": "10v"
+					})
+				}}>
+					<Component {...pageProps} />
+				</div>
+
+				<Footer
+					brandTop={brandTop}
+					homeLinkProps={homeLinkProps}
+					accessibility="non compliant"
+					bottomItems={[headerFooterDisplayItem]}
+				/>
+				<Display />
+			</MuiDsfrThemeProvider>
+		</DsfrLinkProvider>
 	);
 
 }
