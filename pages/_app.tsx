@@ -1,5 +1,4 @@
 import type { AppProps } from "next/app";
-import { createDsfrLinkProvider } from "@codegouvfr/react-dsfr";
 import { createNextDsfrIntegrationApi } from "@codegouvfr/react-dsfr/next";
 import { Header } from "@codegouvfr/react-dsfr/Header";
 import { Footer } from "@codegouvfr/react-dsfr/Footer";
@@ -10,8 +9,6 @@ import { createMuiDsfrThemeProvider } from "@codegouvfr/react-dsfr/mui";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const { DsfrLinkProvider } = createDsfrLinkProvider({ Link });
-
 declare module "@codegouvfr/react-dsfr" {
 	interface RegisterLink {
 		Link: typeof Link;
@@ -20,6 +17,7 @@ declare module "@codegouvfr/react-dsfr" {
 
 const { withDsfr, dsfrDocumentApi } = createNextDsfrIntegrationApi({
 	"defaultColorScheme": "light",
+	Link,
 	"preloadFonts": [
 		//"Marianne-Light",
 		//"Marianne-Light_Italic",
@@ -57,8 +55,7 @@ function App({ Component, pageProps }: AppProps) {
 	const router = useRouter();
 
 	return (
-		<DsfrLinkProvider>
-
+		<>
 			<MuiDsfrThemeProvider>
 				<Header
 					brandTop={brandTop}
@@ -129,7 +126,7 @@ function App({ Component, pageProps }: AppProps) {
 				/>
 				<Display />
 			</MuiDsfrThemeProvider>
-		</DsfrLinkProvider>
+		</>
 	);
 
 }
