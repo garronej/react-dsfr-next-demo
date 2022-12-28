@@ -1,15 +1,15 @@
 import type { AppProps } from "next/app";
-import { createNextDsfrIntegrationApi } from "@codegouvfr/react-dsfr/next";
+import { createNextDsfrIntegrationApi } from "@codegouvfr/react-dsfr/next-pagesdir";
 import { Header } from "@codegouvfr/react-dsfr/Header";
 import { Footer } from "@codegouvfr/react-dsfr/Footer";
 import { Display, headerFooterDisplayItem } from "@codegouvfr/react-dsfr/Display";
 import { createEmotionSsrAdvancedApproach } from "tss-react/next";
 import { fr } from "@codegouvfr/react-dsfr";
-import { createMuiDsfrThemeProvider } from "@codegouvfr/react-dsfr/mui";
+import { MuiDsfrThemeProvider } from "@codegouvfr/react-dsfr/mui";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-declare module "@codegouvfr/react-dsfr" {
+declare module "@codegouvfr/react-dsfr/next-pagesdir" {
 	interface RegisterLink {
 		Link: typeof Link;
 	}
@@ -39,8 +39,6 @@ const { withAppEmotionCache, augmentDocumentWithEmotionCache } = createEmotionSs
 });
 
 export { augmentDocumentWithEmotionCache };
-
-const { MuiDsfrThemeProvider } = createMuiDsfrThemeProvider();
 
 const brandTop = <>INTITULE<br />OFFICIEL</>;
 
