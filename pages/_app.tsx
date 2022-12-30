@@ -82,7 +82,7 @@ function App({ Component, pageProps }: AppProps) {
 						},
 						headerFooterDisplayItem
 					]}
-					navItems={[
+					navigation={[
 						{
 							text: "home",
 							linkProps: {
