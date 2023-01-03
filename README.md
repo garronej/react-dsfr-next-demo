@@ -1,8 +1,10 @@
 
-This is a test Web App to test the integration of `@codegouvfr/react-dsfr` with Next.js  
-You can run it locally with:  
+
+Reproduction repo:  
 
 ```bash
-yarn
+git clone https://github.com/garronej/react-dsfr-next-demo
+cd react-dsfr-next-demo
+git checkout script_local_asset
 yarn dev
 ```
