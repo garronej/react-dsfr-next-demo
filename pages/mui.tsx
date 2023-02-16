@@ -79,16 +79,8 @@ export default function Mui() {
 
 	const { isDark, setIsDark } = useIsDark();
 
-	const [isProviderEnabled, setIsProviderEnabled] = React.useState(true);
-
-	const Children = () => (
+	return (
 		<>
-			<FormControlLabel control={<Switch
-				checked={isProviderEnabled}
-				onChange={event => setIsProviderEnabled(event.target.checked)}
-				inputProps={{ 'aria-label': 'controlled' }}
-			/>} label="Is provider enabled" />
-			<br />
 			<FormControlLabel control={<Switch
 				checked={isDark}
 				onChange={event => setIsDark(event.target.checked)}
@@ -111,17 +103,6 @@ export default function Mui() {
 		</>
 	);
 
-	return (
-		isProviderEnabled ? (
-			<MuiDsfrThemeProvider>
-				<Children />
-			</MuiDsfrThemeProvider>
-		) : (
-			<ThemeProvider theme={isDark ? muiDefaultDarkTheme : muiDefaultLightTheme}>
-				<Children />
-			</ThemeProvider>
-		)
-	);
 }
 
 

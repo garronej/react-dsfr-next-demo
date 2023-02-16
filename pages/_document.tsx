@@ -8,7 +8,9 @@ const {
 
 export default function Document(props: DocumentProps) {
 	return (
-		<Html {...getColorSchemeHtmlAttributes(props)}>
+		<Html
+			{...getColorSchemeHtmlAttributes(props)}
+		>
 			<Head />
 			<body>
 				<Main />

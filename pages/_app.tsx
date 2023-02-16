@@ -53,78 +53,85 @@ function App({ Component, pageProps }: AppProps) {
 	const router = useRouter();
 
 	return (
-		<>
-			<MuiDsfrThemeProvider>
-				<Header
-					brandTop={brandTop}
-					homeLinkProps={homeLinkProps}
-					quickAccessItems={[
-						{
-							iconId: 'fr-icon-add-circle-line',
-							linkProps: {
-								href: '#',
-							},
-							text: 'Créer un espace'
+		<div
+			style={{
+				height: "100vh",
+				display: "flex",
+				flexDirection: "column"
+			}}
+		>
+			<Header
+				brandTop={brandTop}
+				homeLinkProps={homeLinkProps}
+				quickAccessItems={[
+					{
+						iconId: 'fr-icon-add-circle-line',
+						linkProps: {
+							href: '#',
 						},
-						{
-							iconId: 'fr-icon-lock-line',
-							linkProps: {
-								href: '#'
-							},
-							text: 'Se connecter'
+						text: 'Créer un espace'
+					},
+					{
+						iconId: 'fr-icon-lock-line',
+						linkProps: {
+							href: '#'
 						},
-						{
-							iconId: 'fr-icon-account-line',
-							linkProps: {
-								href: '#'
-							},
-							text: 'S’enregistrer'
+						text: 'Se connecter'
+					},
+					{
+						iconId: 'fr-icon-account-line',
+						linkProps: {
+							href: '#'
 						},
-						headerFooterDisplayItem
-					]}
-					navigation={[
-						{
-							text: "home",
-							linkProps: {
-								href: "/"
-							},
-							isActive: router.asPath === "/"
+						text: 'S’enregistrer'
+					},
+					headerFooterDisplayItem
+				]}
+				navigation={[
+					{
+						text: "home",
+						linkProps: {
+							href: "/"
 						},
-						{
-							text: "mui",
-							linkProps: {
-								href: "/mui"
-							},
-							isActive: router.asPath === "/mui"
-						}
-					]}
-					serviceTagline="baseline - précisions sur l'organisation"
-					serviceTitle="Nom du site / service"
-				/>
-				<div style={{
-					"margin": "auto",
-					"maxWidth": 1000,
-					"minHeight": "calc(100vh - 208px - 231px - 5px)",
+						isActive: router.asPath === "/"
+					},
+					{
+						text: "mui",
+						linkProps: {
+							href: "/mui"
+						},
+						isActive: router.asPath === "/mui"
+					}
+				]}
+				serviceTagline="baseline - précisions sur l'organisation"
+				serviceTitle="Nom du site / service"
+			/>
+			<div
+				className={fr.cx("fr-container")}
+				style={{
+					flex: 1,
 					...fr.spacing("padding", {
 						"topBottom": "10v"
 					})
-				}}>
+				}}
+			>
+				<MuiDsfrThemeProvider>
 					<Component {...pageProps} />
-				</div>
+				</MuiDsfrThemeProvider>
+			</div>
 
-				<Footer
-					brandTop={brandTop}
-					homeLinkProps={homeLinkProps}
-					accessibility="non compliant"
-					bottomItems={[headerFooterDisplayItem]}
-					contentDescription={`
+			<Footer
+				brandTop={brandTop}
+				homeLinkProps={homeLinkProps}
+				accessibility="non compliant"
+				bottomItems={[headerFooterDisplayItem]}
+				contentDescription={`
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
 					labore et dolore magna aliqua. 
 					`}
-				/>
-				<Display />
-			</MuiDsfrThemeProvider>
-		</>
+			/>
+			<Display />
+		</div>
 	);
 
 }
