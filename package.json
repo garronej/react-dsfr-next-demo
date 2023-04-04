@@ -11,7 +11,7 @@
         "prebuild": "only-include-used-icons"
     },
     "dependencies": {
-        "@codegouvfr/react-dsfr": "^0.39.0",
+        "@codegouvfr/react-dsfr": "^0.45.0",
         "@emotion/react": "^11.10.5",
         "@emotion/server": "^11.10.0",
         "@emotion/styled": "^11.10.5",
@@ -23,7 +23,7 @@
         "next": "^13.2.3",
         "react": "18.2.0",
         "react-dom": "^18.2.0",
-        "tss-react": "^4.7.5"
+        "tss-react": "^4.8.2"
     },
     "devDependencies": {
         "@types/node": "18.7.23",
