@@ -92,10 +92,10 @@
     "@babel/helper-validator-identifier" "^7.19.1"
     to-fast-properties "^2.0.0"
 
-"@codegouvfr/react-dsfr@^0.54.7":
-  version "0.54.7"
-  resolved "https://registry.yarnpkg.com/@codegouvfr/react-dsfr/-/react-dsfr-0.54.7.tgz#7c559a8cc2cb16ddf2fbba261a04746cae7bf928"
-  integrity sha512-UiJy7FB+X6/EyL3O4GhPDwmjgM/T7DHm7puQTCviLikN88W8vOONLOwxuZa4E+IYoBRqCh6r5Kl8sX6KWP7lGA==
+"@codegouvfr/react-dsfr@0.54.9-rc.0":
+  version "0.54.9-rc.0"
+  resolved "https://registry.yarnpkg.com/@codegouvfr/react-dsfr/-/react-dsfr-0.54.9-rc.0.tgz#04550e700bde76619371cb3668d062bdb5f9bf23"
+  integrity sha512-xKWDGhpgJwA1dwp6ug4SlJlZYL0ettdpRacLvtSm/XmbXwhfJmzQn5XqroTHSNZh5XNp7M0T+tCEz4yT5JMIFg==
   dependencies:
     tsafe "^1.6.0"
 
@@ -2387,10 +2387,10 @@ tslib@^2.4.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.4.1.tgz#0d0bfbaac2880b91e22df0768e55be9753a5b17e"
   integrity sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA==
 
-tss-react@^4.8.2:
-  version "4.8.2"
-  resolved "https://registry.yarnpkg.com/tss-react/-/tss-react-4.8.2.tgz#ea424965e8a6828ac02bc8c8f2a7a75bb87cf0ac"
-  integrity sha512-VT2tvbnfyG5oEMUsJjyp9KPa/A+lahCju+usy8of9SnvNOWFhkVKOMcvTn8KF10ncBF0T+O+XlkcCR4Eoqw1mw==
+tss-react@^4.8.4:
+  version "4.8.4"
+  resolved "https://registry.yarnpkg.com/tss-react/-/tss-react-4.8.4.tgz#0a5fb97bc5e1613d98ec69e3ec9bce8a5987976f"
+  integrity sha512-OaCOc7Gfx4TcNsiLczZ1CZC2dkzyUx8Q/NoTO0n7pxk+cAxKQJrDV7x2nl+fB05bnjlbNkR8/jHLmoCaUwzEtg==
   dependencies:
     "@emotion/cache" "*"
     "@emotion/serialize" "*"
