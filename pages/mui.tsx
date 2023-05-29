@@ -61,19 +61,6 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-const muiDefaultDarkTheme = createTheme({
-	"palette": {
-		"mode": "dark"
-	}
-});
-
-const muiDefaultLightTheme = createTheme({
-	"palette": {
-		"mode": "light"
-	}
-});
-
-
 export default function Mui() {
 
 	const { isDark, setIsDark } = useIsDark();

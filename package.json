@@ -11,7 +11,7 @@
         "prebuild": "only-include-used-icons"
     },
     "dependencies": {
-        "@codegouvfr/react-dsfr": "0.54.10-rc.2",
+        "@codegouvfr/react-dsfr": "^0.57.4",
         "@emotion/react": "^11.10.5",
         "@emotion/server": "^11.10.0",
         "@emotion/styled": "^11.10.5",
@@ -20,10 +20,10 @@
         "@mui/x-data-grid": "^5.17.17",
         "@mui/x-date-pickers": "^5.0.12",
         "dayjs": "^1.11.7",
-        "next": "13.3.0",
+        "next": "13.4.4",
         "react": "18.2.0",
         "react-dom": "^18.2.0",
-        "tss-react": "^4.8.4"
+        "tss-react": "^4.8.5"
     },
     "devDependencies": {
         "@types/node": "18.7.23",

@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { makeStyles } from "@codegouvfr/react-dsfr/tss";
+import { makeStyles } from "tss-react/dsfr";
 import { fr } from "@codegouvfr/react-dsfr";
 
 export type Props = {
@@ -29,7 +29,7 @@ export function MyComponent(props: Props) {
 
 }
 
-const useStyles = makeStyles<{ isBigger: boolean; }>()((theme, { isBigger})=> ({
+const useStyles = makeStyles<{ isBigger: boolean; }>()((theme, { isBigger }) => ({
 	root: {
 		width: 100,
 		height: isBigger? 500 : 100,
