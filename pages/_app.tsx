@@ -72,14 +72,7 @@ function App({ Component, pageProps }: AppProps) {
 						text: 'Créer un espace'
 					},
 					{
-						iconId: 'fr-icon-lock-line',
-						linkProps: {
-							href: '#'
-						},
-						text: 'Se connecter'
-					},
-					{
-						iconId: 'fr-icon-account-line',
+						iconId: 'ri-account-circle-line',
 						linkProps: {
 							href: '#'
 						},
