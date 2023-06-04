@@ -40,14 +40,6 @@ const { withAppEmotionCache, augmentDocumentWithEmotionCache } = createEmotionSs
 
 export { augmentDocumentWithEmotionCache };
 
-const brandTop = <>INTITULE<br />OFFICIEL</>;
-
-const homeLinkProps = {
-	"href": '/',
-	"title": 'Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)'
-};
-
-
 function App({ Component, pageProps }: AppProps) {
 
 	const router = useRouter();
@@ -61,8 +53,11 @@ function App({ Component, pageProps }: AppProps) {
 			}}
 		>
 			<Header
-				brandTop={brandTop}
-				homeLinkProps={homeLinkProps}
+				brandTop={<>INTITULE<br />OFFICIEL</>}
+				homeLinkProps={{
+					"href": '/',
+					"title": 'Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)'
+				}}
 				quickAccessItems={[
 					{
 						iconId: 'fr-icon-add-circle-line',
@@ -114,8 +109,6 @@ function App({ Component, pageProps }: AppProps) {
 			</div>
 
 			<Footer
-				brandTop={brandTop}
-				homeLinkProps={homeLinkProps}
 				accessibility="non compliant"
 				bottomItems={[headerFooterDisplayItem]}
 				contentDescription={`
