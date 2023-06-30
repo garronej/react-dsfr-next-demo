@@ -18,6 +18,10 @@ declare module "@codegouvfr/react-dsfr/next-pagesdir" {
 const { withDsfr, dsfrDocumentApi } = createNextDsfrIntegrationApi({
 	"defaultColorScheme": "system",
 	Link,
+	useLang: () => {
+		const { locale = "fr" } = useRouter();
+		return locale;
+	},
 	"preloadFonts": [
 		//"Marianne-Light",
 		//"Marianne-Light_Italic",
