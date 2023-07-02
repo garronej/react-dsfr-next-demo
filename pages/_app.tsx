@@ -93,7 +93,15 @@ function App({ Component, pageProps }: AppProps) {
 							href: "/mui"
 						},
 						isActive: router.asPath === "/mui"
-					}
+					},
+					{
+						text: "nextra tabs",
+						linkProps: {
+							href: "/nextra-tabs"
+						},
+						isActive: router.asPath === "/nextra-tabs"
+					},
+
 				]}
 				serviceTagline="baseline - précisions sur l'organisation"
 				serviceTitle="Nom du site / service"
