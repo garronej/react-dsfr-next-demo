@@ -8,6 +8,7 @@ import { fr } from "@codegouvfr/react-dsfr";
 import { MuiDsfrThemeProvider } from "@codegouvfr/react-dsfr/mui";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { SearchBarInput } from "./search-bar/SearchBarInput";
 
 declare module "@codegouvfr/react-dsfr/next-pagesdir" {
 	interface RegisterLink {
@@ -56,77 +57,86 @@ function App({ Component, pageProps }: AppProps) {
 				flexDirection: "column"
 			}}
 		>
-			<Header
-				brandTop={<>INTITULE<br />OFFICIEL</>}
-				homeLinkProps={{
-					"href": '/',
-					"title": 'Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)'
-				}}
-				quickAccessItems={[
-					{
-						iconId: 'fr-icon-add-circle-line',
-						linkProps: {
-							href: '#',
+			<MuiDsfrThemeProvider>
+				<Header
+					brandTop={<>INTITULE<br />OFFICIEL</>}
+					homeLinkProps={{
+						"href": '/',
+						"title": 'Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)'
+					}}
+					quickAccessItems={[
+						{
+							iconId: 'fr-icon-add-circle-line',
+							linkProps: {
+								href: '#',
+							},
+							text: 'Créer un espace'
 						},
-						text: 'Créer un espace'
-					},
-					{
-						iconId: 'ri-account-circle-line',
-						linkProps: {
-							href: '#'
+						{
+							iconId: 'ri-account-circle-line',
+							linkProps: {
+								href: '#'
+							},
+							text: 'S’enregistrer'
 						},
-						text: 'S’enregistrer'
-					},
-					headerFooterDisplayItem
-				]}
-				navigation={[
-					{
-						text: "home",
-						linkProps: {
-							href: "/"
+						headerFooterDisplayItem
+					]}
+					navigation={[
+						{
+							text: "home",
+							linkProps: {
+								href: "/"
+							},
+							isActive: router.asPath === "/"
 						},
-						isActive: router.asPath === "/"
-					},
-					{
-						text: "mui",
-						linkProps: {
-							href: "/mui"
+						{
+							text: "mui",
+							linkProps: {
+								href: "/mui"
+							},
+							isActive: router.asPath === "/mui"
 						},
-						isActive: router.asPath === "/mui"
-					},
-					{
-						text: "Search bar example",
-						linkProps: {
-							href: "/search-bar"
-						},
-						isActive: router.asPath === "/search-bar"
+						{
+							text: "Search bar example",
+							linkProps: {
+								href: "/search-bar"
+							},
+							isActive: router.asPath === "/search-bar"
+						}
+					]}
+					serviceTagline="baseline - précisions sur l'organisation"
+					serviceTitle="Nom du site / service"
+					renderSearchInput={
+						({ className, id, placeholder, type }) =>
+							<SearchBarInput
+								className={className}
+								id={id}
+								placeholder={placeholder}
+								type={type}
+							/>
 					}
-				]}
-				serviceTagline="baseline - précisions sur l'organisation"
-				serviceTitle="Nom du site / service"
-			/>
-			<div
-				className={fr.cx("fr-container")}
-				style={{
-					flex: 1,
-					...fr.spacing("padding", {
-						"topBottom": "10v"
-					})
-				}}
-			>
-				<MuiDsfrThemeProvider>
+				/>
+				<div
+					className={fr.cx("fr-container")}
+					style={{
+						flex: 1,
+						...fr.spacing("padding", {
+							"topBottom": "10v"
+						})
+					}}
+				>
 					<Component {...pageProps} />
-				</MuiDsfrThemeProvider>
-			</div>
+				</div>
 
-			<Footer
-				accessibility="non compliant"
-				bottomItems={[headerFooterDisplayItem]}
-				contentDescription={`
+				<Footer
+					accessibility="non compliant"
+					bottomItems={[headerFooterDisplayItem]}
+					contentDescription={`
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
 					labore et dolore magna aliqua. 
 					`}
-			/>
+				/>
+			</MuiDsfrThemeProvider>
 		</div>
 	);
 
