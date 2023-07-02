@@ -20,7 +20,9 @@
         "@mui/x-data-grid": "^5.17.17",
         "@mui/x-date-pickers": "^5.0.12",
         "dayjs": "^1.11.7",
+        "evt": "^2.4.22",
         "next": "13.4.4",
+        "powerhooks": "^0.26.14",
         "react": "18.2.0",
         "react-dom": "^18.2.0",
         "tss-react": "^4.8.6"

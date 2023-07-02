@@ -93,6 +93,13 @@ function App({ Component, pageProps }: AppProps) {
 							href: "/mui"
 						},
 						isActive: router.asPath === "/mui"
+					},
+					{
+						text: "Search bar example",
+						linkProps: {
+							href: "/search-bar"
+						},
+						isActive: router.asPath === "/search-bar"
 					}
 				]}
 				serviceTagline="baseline - précisions sur l'organisation"
