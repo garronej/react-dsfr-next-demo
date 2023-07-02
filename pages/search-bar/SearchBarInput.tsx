@@ -30,7 +30,7 @@ export function SearchBarInput(props: SearchBarInputProps) {
                 {
                     "id": "1",
                     "route": "/",
-                    "prefix": <div>FIRST SECTION</div>,
+                    "prefix": "First section",
                     "children": (
                         <div>
                             <h4>Result 1</h4>
@@ -51,7 +51,7 @@ export function SearchBarInput(props: SearchBarInputProps) {
                 {
                     "id": "3",
                     "route": "/2",
-                    "prefix": <div>SECOND SECTION</div>,
+                    "prefix": "Second section",
                     "children": (
                         <div>
                             <h4>Result 1</h4>

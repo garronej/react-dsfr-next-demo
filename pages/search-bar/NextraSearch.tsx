@@ -1,11 +1,9 @@
 import { type ReactNode, Fragment } from 'react';
 import Autocomplete from "@mui/material/Autocomplete";
 import { assert } from "tsafe/assert";
-import Link from "next/link";
 import { useStyles } from "tss-react/dsfr";
 import { fr } from "@codegouvfr/react-dsfr";
 import { useRouter } from 'next/navigation'
-
 
 type NextraSearchProps = {
     className?: string;
@@ -63,11 +61,18 @@ export function NextraSearch(props: NextraSearchProps) {
                     return;
                 }
                 router.push(getResult(id).route);
+
+                const inputElement = document.getElementById(nativeInputProps.id);
+
+                assert(inputElement !== null);
+
+                inputElement.blur();
+
             }}
             value={null}
             options={results.map(result => result.id)}
             filterOptions={ids => ids} // No filtering
-            getOptionLabel={() => "NEVER DISPLAYED"}
+            getOptionLabel={() => ""}
             renderOption={(liProps, id) => {
 
                 const { prefix, route, children } = getResult(id);
@@ -85,28 +90,16 @@ export function NextraSearch(props: NextraSearchProps) {
                                 "borderBottom": `1px solid ${theme.decisions.border.actionHigh.grey.default}`
                             }}
                         >
-                            {prefix}
+                                <span className={cx(fr.cx("fr-text--lg"), css({
+                                    "color": theme.decisions.text.title.grey.default
+                                }))}
+                                    
+                                >{prefix}</span>
                         </div>)}
                         <li 
                             {...liProps}
                         >
-                            <Link
-                                className={css({
-                                    "backgroundImage": "unset",
-                                    //"border": "1px solid red",
-                                    "flex": 1,
-                                    //disable the color when we click the link (active)
-                                    "&&:active": {
-                                        "backgroundColor": "unset !important",
-                                    }
-
-
-                                })}
-                                href={route}
-                                onClick={event => event.stopPropagation()}
-                            >
-                                {children}
-                            </Link>
+                            {children}
                         </li>
                     </Fragment>
                 );
