@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState, type ReactNode } from "react";
 import { fr } from "@codegouvfr/react-dsfr";
 import { useTabContext } from "./Tabs/context";
