@@ -21,7 +21,6 @@ export function SearchBarInput(props: SearchBarInputProps) {
 
     return (
         <NextraSearch
-            overlayClassName={className}
             value={value}
             onChange={value => setValue(value)}
             loading={false}

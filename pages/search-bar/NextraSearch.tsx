@@ -1,4 +1,4 @@
-import { type ReactNode, Fragment } from 'react';
+import { type ReactNode, useState, useRef } from "react";
 import Autocomplete from "@mui/material/Autocomplete";
 import { assert } from "tsafe/assert";
 import { useStyles } from "tss-react/dsfr";
@@ -11,7 +11,6 @@ type NextraSearchProps = {
     overlayClassName?: string;
     value: string;
     onChange: (newValue: string) => void;
-    onActive?: (active: boolean) => void;
     loading?: boolean;
     error?: boolean;
     results: {
@@ -33,9 +32,8 @@ export function NextraSearch(props: NextraSearchProps) {
     const {
         className,
         overlayClassName,
-        value,
+        //value,
         onChange,
-        onActive,
         loading,
         error,
         results,
@@ -52,32 +50,46 @@ export function NextraSearch(props: NextraSearchProps) {
         return result;
     }
 
+    const [isOpen, setIsOpen] = useState(false);
+
+    const valueRef = useRef(props.value);
+
     return (
         <Autocomplete
-            PopperComponent={(props)=>
+
+            PopperComponent={(props) =>
                 <Popper
                     {...props}
                     style={{
                         ...props.style,
                         "width": undefined
                     }}
-                    className={cx(props.className, css({
-                        "zIndex": 100000,
-                        "width": "40em",
-                        [fr.breakpoints.down("lg")]: {
-                            "width": "calc(100vw - 3rem)"
-                        }
-
-                    }))}
+                    className={cx(
+                        props.className,
+                        css({
+                            "zIndex": 100000,
+                            "width": "40em",
+                            [fr.breakpoints.down("lg")]: {
+                                "width": "calc(100vw - 3rem)"
+                            }
+                        }),
+                        overlayClassName
+                    )}
                     placement="bottom-start"
                 />
             }
             className={className}
             fullWidth
-            onInputChange={(...[, newValue]) => onChange(newValue)}
+            onInputChange={(...[, newValue]) => {
+                valueRef.current = newValue;
+                onChange(newValue)
+                if (newValue === "") {
+                    setIsOpen(false);
+                }
+            }}
             blurOnSelect
-            onChange={(...[,id]) => { 
-                if( id === null ){
+            onChange={(...[, id]) => {
+                if (id === null) {
                     return;
                 }
                 router.push(getResult(id).route);
@@ -89,9 +101,9 @@ export function NextraSearch(props: NextraSearchProps) {
             // @ts-expect-error: We return a ReactNode instead of a string
             // but it's okay as long as we always return the same object reference
             // for a given group.
-            groupBy={id=> {
+            groupBy={id => {
 
-                const index= results.findIndex(result => result.id === id);
+                const index = results.findIndex(result => result.id === id);
 
                 const getPrefix = (index: number): ReactNode => {
 
@@ -110,12 +122,13 @@ export function NextraSearch(props: NextraSearchProps) {
                 };
 
                 return getPrefix(index);
-                
+
             }}
             renderOption={(liProps, id) =>
                 <li
                     {...liProps}
                     id={id}
+                    key={id}
                 >
                     {getResult(id).children}
                 </li>
@@ -138,8 +151,19 @@ export function NextraSearch(props: NextraSearchProps) {
                     />
                 </div>
             }
-            onOpen={() => onActive?.(true)}
-            onClose={() => onActive?.(false)}
+            open={isOpen}
+            onOpen={() => {
+
+                const value = valueRef.current;
+
+                if (value === "") {
+                    return;
+                }
+
+                setIsOpen(true);
+
+            }}
+            onClose={() => setIsOpen(false)}
         />
     );
 
