@@ -30,7 +30,7 @@ export function SearchBarInput(props: SearchBarInputProps) {
                 {
                     "id": "1",
                     "route": "/",
-                    "prefix": "First section",
+                    "prefix": <>First <b>section</b></>,
                     "children": (
                         <div>
                             <h4>Result 1</h4>

@@ -86,37 +86,40 @@ export function NextraSearch(props: NextraSearchProps) {
             options={results.map(result => result.id)}
             filterOptions={ids => ids} // No filtering
             getOptionLabel={() => ""}
-            renderOption={(liProps, id) => {
+            // @ts-expect-error: We return a ReactNode instead of a string
+            // but it's okay as long as we always return the same object reference
+            // for a given group.
+            groupBy={id=> {
 
-                const { prefix, route, children } = getResult(id);
+                const index= results.findIndex(result => result.id === id);
 
-                return (
-                    <Fragment key={id}>
-                        {prefix && (
-                        <div
-                            style={{
-                                ...fr.spacing("padding", {
-                                    "topBottom": "2v",
-                                    "rightLeft": "4v",
-                                }),
-                                "marginBottom": fr.spacing("2v"),
-                                "borderBottom": `1px solid ${theme.decisions.border.actionHigh.grey.default}`
-                            }}
-                        >
-                                <span className={cx(fr.cx("fr-text--lg"), css({
-                                    "color": theme.decisions.text.title.grey.default
-                                }))}
-                                    
-                                >{prefix}</span>
-                        </div>)}
-                        <li 
-                            {...liProps}
-                        >
-                            {children}
-                        </li>
-                    </Fragment>
-                );
+                const getPrefix = (index: number): ReactNode => {
+
+                    const result = results[index];
+
+                    if (result.prefix !== undefined) {
+                        return result.prefix;
+                    }
+
+                    if (index === 0) {
+                        return "";
+                    }
+
+                    return getPrefix(index - 1);
+
+                };
+
+                return getPrefix(index);
+                
             }}
+            renderOption={(liProps, id) =>
+                <li
+                    {...liProps}
+                    id={id}
+                >
+                    {getResult(id).children}
+                </li>
+            }
             noOptionsText={"no result"}
             loadingText={"loading"}
             loading={loading}
