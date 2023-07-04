@@ -74,19 +74,12 @@ export function NextraSearch(props: NextraSearchProps) {
             }
             className={cx(css({ "width": "100%" }), className)}
             onInputChange={(...[, newValue]) => onChange(newValue)}
-            // NOTE: Just in case the user click outside of the Link
+            blurOnSelect
             onChange={(...[,id]) => { 
                 if( id === null ){
                     return;
                 }
                 router.push(getResult(id).route);
-
-                const inputElement = document.getElementById(nativeInputProps.id);
-
-                assert(inputElement !== null);
-
-                inputElement.blur();
-
             }}
             value={null}
             options={results.map(result => result.id)}
