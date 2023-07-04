@@ -4,6 +4,7 @@ import { assert } from "tsafe/assert";
 import { useStyles } from "tss-react/dsfr";
 import { fr } from "@codegouvfr/react-dsfr";
 import { useRouter } from 'next/navigation'
+import Popper from "@mui/material/Popper";
 
 type NextraSearchProps = {
     className?: string;
@@ -53,6 +54,24 @@ export function NextraSearch(props: NextraSearchProps) {
 
     return (
         <Autocomplete
+            PopperComponent={(props)=>
+                <Popper
+                    {...props}
+                    style={{
+                        ...props.style,
+                        "width": undefined
+                    }}
+                    className={cx(props.className, css({
+                        "zIndex": 100000,
+                        "width": "40em",
+                        [fr.breakpoints.down("lg")]: {
+                            "width": "calc(100vw - 3rem)"
+                        }
+
+                    }))}
+                    placement="bottom-start"
+                />
+            }
             className={cx(css({ "width": "100%" }), className)}
             onInputChange={(...[, newValue]) => onChange(newValue)}
             // NOTE: Just in case the user click outside of the Link
