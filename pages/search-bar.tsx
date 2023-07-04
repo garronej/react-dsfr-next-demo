@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { SearchBar } from "@codegouvfr/react-dsfr/SearchBar";
-import { SearchBarInput } from "./SearchBarInput";
+import { SearchBarInput } from "../shared/SearchBarInput";
 
 export default function Page() {
 

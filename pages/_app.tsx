@@ -8,7 +8,7 @@ import { fr } from "@codegouvfr/react-dsfr";
 import { MuiDsfrThemeProvider } from "@codegouvfr/react-dsfr/mui";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { SearchBarInput } from "./search-bar/SearchBarInput";
+import { SearchBarInput } from "../shared/SearchBarInput";
 
 declare module "@codegouvfr/react-dsfr/next-pagesdir" {
 	interface RegisterLink {
