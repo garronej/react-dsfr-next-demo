@@ -72,7 +72,8 @@ export function NextraSearch(props: NextraSearchProps) {
                     placement="bottom-start"
                 />
             }
-            className={cx(css({ "width": "100%" }), className)}
+            className={className}
+            fullWidth
             onInputChange={(...[, newValue]) => onChange(newValue)}
             blurOnSelect
             onChange={(...[,id]) => { 
