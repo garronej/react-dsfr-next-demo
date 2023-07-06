@@ -23,7 +23,7 @@ export function MyComponent(props: Props) {
 			className={cx(classes.root, className)}
 			onClick={() => setClickCount(clickCount + 1)}
 		>
-			<span className={classes.text}>Hello {clickCount}</span>
+			<span className={classes.text}>{clickCount}</span>
 		</div>
 	);
 
@@ -38,10 +38,11 @@ const useStyles = makeStyles<{ isBigger: boolean; }>()((theme, { isBigger }) => 
 			backgroundColor: theme.decisions.background.active.redMarianne.hover,
 		},
 		[fr.breakpoints.down("md")]: {
-			border: "2px solid pink"
-		}
+			border: `6px solid ${theme.decisions.border.default.grey.default}`
+		},
+		padding: fr.spacing("2v")
 	},
 	text: {
-		backgroundColor: "red"
+		fontWeight: "bold"
 	}
 }));
