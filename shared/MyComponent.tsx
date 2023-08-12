@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { makeStyles } from "tss-react/dsfr";
 import { fr } from "@codegouvfr/react-dsfr";
+import { useColors } from "@codegouvfr/react-dsfr/useColors";
 
 export type Props = {
 	className?: string;
