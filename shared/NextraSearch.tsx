@@ -40,7 +40,7 @@ export function NextraSearch(props: NextraSearchProps) {
         nativeInputProps
     } = props;
 
-    const { css, cx, theme } = useStyles();
+    const { css, cx } = useStyles();
 
     const router = useRouter()
 
