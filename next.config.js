@@ -11,7 +11,8 @@ const nextConfig = {
 
     return config;
   },
-  transpilePackages: ['@codegouvfr/react-dsfr', 'tss-react']
+  transpilePackages: ['@codegouvfr/react-dsfr', 'tss-react'],
+  output: "export"
 };
 
 module.exports = nextConfig

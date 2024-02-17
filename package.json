@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "next dev",
-        "build": "next build && next export",
+        "build": "next build",
         "start": "next start",
         "lint": "next lint",
         "predev": "only-include-used-icons",
@@ -21,7 +21,7 @@
         "@mui/x-date-pickers": "^5.0.12",
         "dayjs": "^1.11.7",
         "evt": "^2.5.3",
-        "next": "13.4.4",
+        "next": "^14.1.0",
         "powerhooks": "^1.0.5",
         "react": "18.2.0",
         "react-dom": "^18.2.0",
