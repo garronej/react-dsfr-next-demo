@@ -87,12 +87,13 @@
     "@babel/helper-validator-identifier" "^7.19.1"
     to-fast-properties "^2.0.0"
 
-"@codegouvfr/react-dsfr@^1.5.2":
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/@codegouvfr/react-dsfr/-/react-dsfr-1.5.2.tgz#f10e6d50a618ad5dc60e60527d1beb5340ea8af7"
-  integrity sha512-FRu2HB9a8rk148aK7yIRB8mEePq62BG5BC0F+HJ8rOsud/N1Yst8lvX/+hA1lRTLtgOILGBArXpj/LdU76GA8w==
+"@codegouvfr/react-dsfr@^1.7.1":
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/@codegouvfr/react-dsfr/-/react-dsfr-1.7.1.tgz#f98d6c6764221a370f23c000fd3ffc92c077166e"
+  integrity sha512-UPYW8BELOIwtgTWpCbtD9rF50PJC8jO2G5W5AtsEsFqOcWd+jipMJtCvbT2RlYY2D8Udn8pXI5W5WpW32cl5sQ==
   dependencies:
     tsafe "^1.6.3"
+    yargs-parser "^21.1.1"
 
 "@date-io/core@^2.15.0", "@date-io/core@^2.16.0":
   version "2.16.0"
@@ -2738,6 +2739,11 @@ yaml@^1.10.0:
   version "1.10.2"
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-1.10.2.tgz#2301c5ffbf12b467de8da2333a459e29e7920e4b"
   integrity sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==
+
+yargs-parser@^21.1.1:
+  version "21.1.1"
+  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-21.1.1.tgz#9096bceebf990d21bb31fa9516e0ede294a77d35"
+  integrity sha512-tVpsJW7DdjecAiFpbIB1e3qxIQsE6NoPc5/eTdrbbIC4h0LVsWhnoa3g+m2HclBIujHzsxZ4VJVA+GUuc2/LBw==
 
 zod@3.21.4:
   version "3.21.4"
