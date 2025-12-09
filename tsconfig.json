@@ -16,14 +16,18 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "pages/_document.tsx.disable", "pages/index.tsx.disabled", "pages/_document.tsx.disabled", "pages/_app.tsx.disabled"  ],
+    "**/*.tsx",
+    "pages/_document.tsx.disable",
+    "pages/index.tsx.disabled",
+    "pages/_document.tsx.disabled",
+    "pages/_app.tsx.disabled"
+  ],
   "exclude": [
     "node_modules"
   ]
